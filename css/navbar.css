@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #ffffff !important; /* Fondo blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 10px 0;
+    position: fixed; /* Navbar fija */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Sobre otros elementos */
+}
+
+/* Texto de la marca */
+.navbar-brand {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000; /* Texto negro para contraste */
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Imagen del logo */
+.navbar-brand img {
+    opacity: 1; /* Asegura que sea 100% opaco */
+    height: 40px;
+}

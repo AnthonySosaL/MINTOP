@@ -1,0 +1,6 @@
+/* FRONTEND/css/navbargestion.css */
+.table-hover tbody tr:hover {
+    cursor: pointer;
+    background-color: #eee;
+  }
+  

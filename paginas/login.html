@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inicio de Sesión</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <div id="navbar"></div>
+
+  <!-- Contenido principal -->
+  <div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="card shadow-lg p-4" style="width:100%; max-width:400px;">
+      <div class="card-body">
+        <h2 class="text-center mb-4 ">
+          <i class="bi bi-person-circle"></i> Iniciar Sesión
+        </h2>
+        <form>
+          <!-- Usuario -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-envelope"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              placeholder="Usuario"
+              required
+            />
+          </div>
+
+          <!-- Contraseña -->
+          <div class="input-group mb-3">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Contraseña"
+              required
+            />
+            <span class="input-group-text">
+              <i class="bi bi-eye" id="togglePassword" style="cursor: pointer;"></i>
+            </span>
+          </div>
+
+          <!-- Botón de inicio de sesión -->
+          <button type="submit" class="btn btn-custom w-100">Iniciar Sesión</button>
+
+          <!-- Enlace para recuperar contraseña -->
+          <div class="text-center mt-3">
+            <a href="#" class="custom-link">¿Olvidaste tu contraseña?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para mensajes -->
+  <div
+    class="modal fade"
+    id="notificationModal"
+    tabindex="-1"
+    aria-labelledby="notificationModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-header justify-content-center border-0">
+          <i class="bi bi-x-circle-fill text-danger" style="font-size:3rem;"></i>
+        </div>
+        <div
+          class="modal-body"
+          id="notificationModalBody"
+          style="font-size:1.2rem; color:#343a40;"
+        ></div>
+        <div class="modal-footer justify-content-center border-0">
+          <button type="button" class="btn w-50 btn-custom" data-bs-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>

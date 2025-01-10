@@ -1,0 +1,141 @@
+<!-- FRONTEND/componentes/navbargestion.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Marca o título -->
+      <a class="navbar-brand" href="/gestion">
+        MiTOP (Gestión)
+      </a>
+  
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarGestion"
+        aria-controls="navbarGestion"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarGestion">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <!-- Botón de cerrar sesión -->
+            <button class="btn btn-danger" id="logout" type="button">
+              Cerrar Sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Contenedor para la búsqueda y las tablas -->
+  <div class="container mt-4">
+    <!-- Formulario con un solo input para buscar cédula/nombre/usuario -->
+    <form id="formBuscar" class="row g-3">
+      <div class="col-auto" style="flex: 1;">
+        <label for="busqueda" class="visually-hidden">Búsqueda</label>
+        <input
+          type="text"
+          class="form-control"
+          id="busqueda"
+          placeholder="Buscar (Cédula, Nombre o Usuario)"
+        />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </form>
+  
+    <!-- Tabla de RESULTADOS de USUARIO -->
+    <div class="mt-4">
+      <h5>Datos del Usuario</h5>
+      <table class="table table-bordered" id="tablaUsuario">
+        <thead>
+          <tr>
+            <th>Cédula</th>
+            <th>Nombre</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Tabla de COMPUTADORES ASIGNADOS -->
+    <div class="mt-4" id="seccionComputadores" style="display: none;">
+      <h5>Computadores Asignados</h5>
+      <table class="table table-striped" id="tablaComputadores">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Punto de Red</th>
+            <!-- Ejemplo: campos adicionales, e.g. CPU, Disco, etc. -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Tabla de TELÉFONOS ASIGNADOS -->
+    <div class="mt-4" id="seccionTelefonos" style="display: none;">
+      <h5>Teléfonos Asignados</h5>
+      <table class="table table-striped" id="tablaTelefonos">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Punto de Red</th>
+            <!-- Ejemplo: tal vez # de extensión, modelo teléfono, etc. -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Tabla de LAPTOPS ASIGNADAS -->
+    <div class="mt-4" id="seccionLaptops" style="display: none;">
+      <h5>Laptops Asignadas</h5>
+      <table class="table table-striped" id="tablaLaptops">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Punto de Red</th>
+            <!-- Campos específicos de la laptop -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Tabla de IMPRESORAS ASIGNADAS -->
+    <div class="mt-4" id="seccionImpresoras" style="display: none;">
+      <h5>Impresoras Asignadas</h5>
+      <table class="table table-striped" id="tablaImpresoras">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Punto de Red</th>
+            <!-- Campos específicos de la impresora: tóner, etc. -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

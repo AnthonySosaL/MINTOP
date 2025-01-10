@@ -1,0 +1,86 @@
+/* Fondo */
+body {
+    background-color: #ffffff;
+    color: #343a40;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container-fluid {
+    height: calc(100vh - 56px); /* Altura del viewport menos la navbar */
+    margin-top: 56px; /* Ajustar la altura de la navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjeta */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: #ebab35; /* Color personalizado */
+}
+
+/* Botón personalizado */
+.btn-custom {
+    background-color: #ebab35 !important; /* Amarillo personalizado */
+    color: #ffffff !important; /* Color del texto */
+    border: 2px solid #dda030 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #ebab35 !important; /* Más oscuro en hover */
+    color: #ffffff !important;
+}
+
+/* Enlace personalizado */
+.custom-link {
+    color: #ebab35 !important; /* Amarillo personalizado */
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    text-decoration: underline;
+    color: #b37400 !important;
+}
+
+/* Sobrescribir enlaces predeterminados de Bootstrap */
+a {
+    color: #ebab35 !important;
+}
+h2 {
+    color: #ebab35 !important;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #b37400 !important;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem; /* Encabezado más pequeño */
+    }
+
+    .card {
+        margin: 20px; /* Ajusta márgenes en pantallas pequeñas */
+    }
+
+    .btn-custom {
+        font-size: 0.9rem; /* Botón más compacto */
+        padding: 8px 15px;
+    }
+}
