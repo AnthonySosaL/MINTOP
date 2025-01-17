@@ -1,0 +1,30 @@
+/* Contenedor principal */
+.container {
+    margin-top: 80px !important; /* Espacio suficiente debajo de la navbar fija */
+  }
+  
+  /* Barra de búsqueda */
+  #searchInput {
+    border-radius: 0.375rem;
+  }
+  
+  #searchButton {
+    border-radius: 0.375rem;
+  }
+  
+  /* Tabla */
+  #resultsTable th {
+    background-color: #f8f9fa; /* Fondo claro */
+    text-align: center;
+  }
+  
+  #resultsTable td {
+    text-align: center;
+  }
+  
+  /* Mensaje de "sin resultados" */
+  #resultsTable tbody td {
+    font-style: italic;
+    color: #6c757d; /* Texto en gris */
+  }
+  

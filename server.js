@@ -18,6 +18,10 @@ app.get("/", (req, res) => {
 app.get("/gestion", (req, res) => {
   res.sendFile(path.join(__dirname, "paginas", "gestion.html"));
 });
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "paginas", "admin.html"));
+});
+
 
 // Ruta protegida de verdad, donde se exigen credenciales (aquí simuladas).
 app.get("/api/gestion", (req, res) => {
@@ -32,6 +36,23 @@ app.get("/api/gestion", (req, res) => {
   console.log("Token recibido:", token);
 
 });
+app.get("/api/admin", (req, res) => {
+  const token = req.headers["x-auth-token"];
+  if (!token) {
+      return res.status(401).send("Acceso no autorizado. Por favor, inicie sesión.");
+  }
+
+  // Simulación de validación de token y rol
+  const [username, timestamp] = token.split("-");
+  const user = { username, role: username === "admin" ? "admin" : "gestor" };
+
+  if (user.role !== "admin") {
+      return res.status(403).send("Acceso denegado. No tiene permisos de administrador.");
+  }
+
+  res.json({ message: "Bienvenido, administrador", data: { some: "data" } });
+});
+
 
 // Manejo de rutas no encontradas
 app.use((req, res) => {

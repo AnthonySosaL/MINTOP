@@ -1,0 +1,81 @@
+/* Contenedor principal */
+.container {
+    margin-top: 80px; /* Espacio debajo del navbar */
+  }
+  
+  /* Estilo de la barra de búsqueda */
+  #searchInput {
+    border-radius: 0.375rem;
+  }
+  
+  #searchButton {
+    border-radius: 0.375rem;
+  }
+  
+  /* Tabla de resultados */
+  #resultsTable th {
+    background-color: #f8f9fa; /* Fondo claro para el encabezado */
+    text-align: center;
+  }
+  
+  #resultsTable td {
+    text-align: center;
+  }
+  
+  /* Mensaje de "sin resultados" */
+  #resultsTable tbody td {
+    font-style: italic;
+    color: #6c757d; /* Gris */
+  }
+  
+  /* --- Colores para los encabezados de tablas --- */
+
+/* Tabla de Impresoras */
+#tablaImpresoras thead th {
+  background-color: #0bbece !important; /* Coral (rojo anaranjado) */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Tabla de Tablets */
+#tablaTablets thead th {
+  background-color: #8a2be2 !important; /* Azul violeta */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Sección de Impresoras */
+.bordered-section.equipos-impresoras {
+  border: 2px solid #ff6347; /* Coral (rojo anaranjado) */
+  background-color: #ffecec; /* Fondo coral claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Sección de Tablets */
+.bordered-section.equipos-tablets {
+  border: 2px solid #8a2be2; /* Azul violeta */
+  background-color: #f3e8ff; /* Fondo violeta claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Espaciado adicional entre tablas dentro de las nuevas secciones */
+.bordered-section.equipos-impresoras .table-container,
+.bordered-section.equipos-tablets .table-container {
+  margin-bottom: 15px; /* Espaciado entre tablas */
+}
+
+/* Opcional: Estilo para los títulos de las nuevas secciones */
+.bordered-section.equipos-impresoras h5,
+.bordered-section.equipos-tablets h5 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.bordered-section.equipos-impresoras h6,
+.bordered-section.equipos-tablets h6 {
+  margin-bottom: 10px;
+  text-align: center;
+}

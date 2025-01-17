@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Administrador</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+  <!-- CSS específico del navbar admin -->
+  <link rel="stylesheet" href="../css/navbaradmin.css" />
+  <!-- CSS específico del administrador -->
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body>
+  <!-- Contenedor del navbar -->
+  <div id="navAdminContainer"></div>
+
+  <!-- Contenedor principal -->
+  <div class="container mt-5">
+    <!-- Barra de búsqueda -->
+    <div class="row mb-3">
+      <div class="col-md-10">
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control"
+          placeholder="Buscar por MAC o IP"
+        />
+      </div>
+      <div class="col-md-2">
+        <button id="searchButton" class="btn btn-primary w-100">Buscar</button>
+      </div>
+    </div>
+
+    <!-- Tabla de resultados -->
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered" id="resultsTable">
+        <thead>
+          <tr>
+            <th>Rack</th>
+            <th>SW</th>
+            <th>VLAN</th>
+            <th>Puerto</th>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Usuario</th>
+            <th>Cédula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Contenido dinámico -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Script del navbar admin -->
+  <script src="../js/navbaradmin.js"></script>
+  <!-- Script principal de la página admin -->
+  <script src="../js/admin.js"></script>
+</body>
+</html>

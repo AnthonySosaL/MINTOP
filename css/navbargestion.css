@@ -1,6 +1,245 @@
-/* FRONTEND/css/navbargestion.css */
-.table-hover tbody tr:hover {
-    cursor: pointer;
-    background-color: #eee;
+/* Navbar general */
+.navbar {
+  background-color: #ffffff !important; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; /* Sombra sutil */
+  padding: 10px !important; /* Espaciado interno */
+  height: 70px; /* Ajustar altura */
+  position: fixed !important; /* Fija en la parte superior */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 1030 !important; /* Sobre otros elementos */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important; /* Distribuye los elementos correctamente */
+}
+
+/* Logo */
+.navbar-brand {
+  display: flex; /* Asegura que el logo se comporte como un bloque flexible */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  margin: 0; /* Elimina márgenes */
+}
+
+.navbar-brand img {
+  height: 40px; /* Tamaño del logo */
+  max-width: 120px; /* Limita el ancho máximo */
+  width: auto; /* Mantiene proporciones */
+}
+
+/* Botón de cerrar sesión */
+.btn-outline-light {
+  border: 1px solid #f01c1c !important;
+  color: #f00d0d !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease-in-out !important;
+  margin-left: 10px; /* Espaciado a la izquierda */
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #e32d2d !important;
+  border: 1px solid #eb3737 !important;
+}
+
+
+/* Evitar superposición del contenido */
+.main-content {
+  margin-top: 80px; /* Deja espacio suficiente debajo del navbar */
+}
+
+/* Asegura que el modal siempre esté centrado */
+#confirmarModal .modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#confirmarModal .modal-content {
+  padding: 10px; /* Ajusta el espaciado interno */
+}
+
+/* --- Responsividad General --- */
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 992px) {
+  .main-content {
+    padding: 20px;
   }
-  
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 991px) {
+  .navbar {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  .navbar-brand img {
+    height: 30px !important; /* Reduce el tamaño del logo */
+  }
+
+  .main-content {
+    margin-top: 100px; /* Más espacio para el navbar */
+  }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  .main-content {
+    padding: 10px;
+  }
+
+  table {
+    font-size: 0.85rem; /* Reduce el tamaño del texto */
+  }
+
+  .btn {
+    font-size: 0.75rem; /* Botones más pequeños */
+  }
+
+  .navbar-brand img {
+    height: 25px !important; /* Logo aún más pequeño */
+  }
+}
+
+/* --- Colores para los encabezados de tablas --- */
+
+/* Tabla de Usuarios */
+#tablaUsuario thead th {
+  background-color: #ffd700 !important; /* Amarillo */
+  color: #000 !important; /* Texto negro */
+}
+
+/* Tabla de Computadores */
+#tablaComputadores thead th {
+  background-color: #1e90ff !important; /* Azul */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Tabla de Teléfonos */
+#tablaTelefonos thead th {
+  background-color: #ff4500 !important; /* Rojo */
+  color: #fff !important; /* Texto blanco */
+}
+/* Estilo para los botones de la columna "Acción" */
+.table td button {
+  font-size: 0.8rem; /* Tamaño pequeño */
+  padding: 5px 10px; /* Ajustar el tamaño del botón */
+  min-width: 50px; /* Evitar que el botón se estire mucho */
+}
+
+/* Estilo específico para el botón de "Acción" (verde) */
+.table td button.btn-success {
+  background-color: #2d77bd !important; /* Verde Bootstrap */
+  border-color: #2872a7 !important; /* Borde verde */
+  color: white !important; /* Texto blanco */
+}
+
+.table td button.btn-success:hover {
+  background-color: #2b8bb5 !important; /* Verde más oscuro cuando pasa el mouse */
+  border-color: #1e5e7e !important; /* Borde más oscuro cuando pasa el mouse */
+}
+
+/* Sección de Equipos Alámbricos */
+.bordered-section.equipos-alambricos {
+  border: 2px solid #007bff; /* Azul para Alámbricos */
+  background-color: #e9f7fe; /* Fondo azul claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Sección de Equipos Inalámbricos */
+.bordered-section.equipos-inalambricos {
+  border: 2px solid #28a745; /* Verde para Inalámbricos */
+  background-color: #ebfbee; /* Fondo verde claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Separación adicional entre tablas dentro de las secciones */
+.bordered-section .table-container {
+  margin-bottom: 15px; /* Espaciado entre tablas */
+}
+
+/* Espaciado dentro de las tablas */
+.table td, .table th {
+  padding: 10px; /* Espaciado interno de celdas */
+}
+
+/* Opcional: Estilo para las cabeceras de las secciones */
+.bordered-section h5 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Opcional: Separación entre títulos de tablas y tablas */
+.bordered-section h6 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+  /* --- Colores para los encabezados de tablas --- */
+
+/* Tabla de Impresoras */
+#tablaImpresoras thead th {
+  background-color: #0bbece !important; /* Coral (rojo anaranjado) */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Tabla de Tablets */
+#tablaTablets thead th {
+  background-color: #8a2be2 !important; /* Azul violeta */
+  color: #fff !important; /* Texto blanco */
+}
+#tablaLaptops thead th {
+  background-color: #a7d219 !important; /* Azul violeta */
+  color: #fff !important; /* Texto blanco */
+}
+
+#tablaLaptopsEP thead th {
+  background-color: #b919d2 !important; /* Azul violeta */
+  color: #fff !important; /* Texto blanco */
+}
+
+/* Sección de Impresoras */
+.bordered-section.equipos-impresoras {
+  border: 2px solid #ff6347; /* Coral (rojo anaranjado) */
+  background-color: #ffecec; /* Fondo coral claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Sección de Tablets */
+.bordered-section.equipos-tablets {
+  border: 2px solid #8a2be2; /* Azul violeta */
+  background-color: #f3e8ff; /* Fondo violeta claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px 0; /* Separación superior e inferior */
+}
+
+/* Espaciado adicional entre tablas dentro de las nuevas secciones */
+.bordered-section.equipos-impresoras .table-container,
+.bordered-section.equipos-tablets .table-container {
+  margin-bottom: 15px; /* Espaciado entre tablas */
+}
+
+/* Opcional: Estilo para los títulos de las nuevas secciones */
+.bordered-section.equipos-impresoras h5,
+.bordered-section.equipos-tablets h5 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.bordered-section.equipos-impresoras h6,
+.bordered-section.equipos-tablets h6 {
+  margin-bottom: 10px;
+  text-align: center;
+}

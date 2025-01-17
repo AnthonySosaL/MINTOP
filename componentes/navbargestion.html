@@ -1,141 +1,436 @@
-<!-- FRONTEND/componentes/navbargestion.html -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <!-- Marca o título -->
-      <a class="navbar-brand" href="/gestion">
-        MiTOP (Gestión)
-      </a>
-  
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarGestion"
-        aria-controls="navbarGestion"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarGestion">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <!-- Botón de cerrar sesión -->
-            <button class="btn btn-danger" id="logout" type="button">
-              Cerrar Sesión
-            </button>
-          </li>
-        </ul>
-      </div>
+<!-- navbargestion.html -->
+<nav class="navbar navbar-dark bg-primary shadow">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="../imagenes/logo1.png" alt="Logo MINTOP" class="logo" />
+    </a>
+    <!-- Botón de cerrar sesión -->
+    <button class="btn btn-outline-light" id="logout" type="button" title="Cerrar Sesión">
+      <i class="bi bi-box-arrow-right"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Contenedor principal -->
+<div class="container main-content">
+  <!-- Formulario de búsqueda -->
+  <form id="formBuscar" class="row g-3 mt-3">
+    <div class="col-auto" style="flex: 1;">
+      <label for="busqueda" class="visually-hidden">Búsqueda</label>
+      <input
+        type="text"
+        class="form-control"
+        id="busqueda"
+        placeholder="Buscar (Cédula, Nombre o Usuario)"
+      />
     </div>
-  </nav>
-  
-  <!-- Contenedor para la búsqueda y las tablas -->
-  <div class="container mt-4">
-    <!-- Formulario con un solo input para buscar cédula/nombre/usuario -->
-    <form id="formBuscar" class="row g-3">
-      <div class="col-auto" style="flex: 1;">
-        <label for="busqueda" class="visually-hidden">Búsqueda</label>
-        <input
-          type="text"
-          class="form-control"
-          id="busqueda"
-          placeholder="Buscar (Cédula, Nombre o Usuario)"
-        />
-      </div>
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary">Buscar</button>
-      </div>
-    </form>
-  
-    <!-- Tabla de RESULTADOS de USUARIO -->
-    <div class="mt-4">
-      <h5>Datos del Usuario</h5>
-      <table class="table table-bordered" id="tablaUsuario">
-        <thead>
-          <tr>
-            <th>Cédula</th>
-            <th>Nombre</th>
-            <th>Usuario</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se llenará dinámicamente -->
-        </tbody>
-      </table>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Buscar</button>
     </div>
-  
-    <!-- Tabla de COMPUTADORES ASIGNADOS -->
-    <div class="mt-4" id="seccionComputadores" style="display: none;">
-      <h5>Computadores Asignados</h5>
-      <table class="table table-striped" id="tablaComputadores">
-        <thead>
-          <tr>
-            <th>MAC</th>
-            <th>IP</th>
-            <th>Punto de Red</th>
-            <!-- Ejemplo: campos adicionales, e.g. CPU, Disco, etc. -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se llenará dinámicamente -->
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Tabla de TELÉFONOS ASIGNADOS -->
-    <div class="mt-4" id="seccionTelefonos" style="display: none;">
-      <h5>Teléfonos Asignados</h5>
-      <table class="table table-striped" id="tablaTelefonos">
-        <thead>
-          <tr>
-            <th>MAC</th>
-            <th>IP</th>
-            <th>Punto de Red</th>
-            <!-- Ejemplo: tal vez # de extensión, modelo teléfono, etc. -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se llenará dinámicamente -->
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Tabla de LAPTOPS ASIGNADAS -->
-    <div class="mt-4" id="seccionLaptops" style="display: none;">
-      <h5>Laptops Asignadas</h5>
-      <table class="table table-striped" id="tablaLaptops">
-        <thead>
-          <tr>
-            <th>MAC</th>
-            <th>IP</th>
-            <th>Punto de Red</th>
-            <!-- Campos específicos de la laptop -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se llenará dinámicamente -->
-        </tbody>
-      </table>
-    </div>
-  
-    <!-- Tabla de IMPRESORAS ASIGNADAS -->
-    <div class="mt-4" id="seccionImpresoras" style="display: none;">
-      <h5>Impresoras Asignadas</h5>
-      <table class="table table-striped" id="tablaImpresoras">
-        <thead>
-          <tr>
-            <th>MAC</th>
-            <th>IP</th>
-            <th>Punto de Red</th>
-            <!-- Campos específicos de la impresora: tóner, etc. -->
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Se llenará dinámicamente -->
-        </tbody>
-      </table>
-    </div>
+  </form>
+
+  <!-- Tabla de resultados de usuarios -->
+  <div class="mt-4">
+    <h5>Datos del Usuario</h5>
+    <table class="table table-bordered table-responsive" id="tablaUsuario">
+      <thead>
+        <tr>
+          <th>Cédula</th>
+          <th>Nombre</th>
+          <th>Usuario</th>
+          <th style="width: 70px;">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Se llenará dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+
+<!-- Contenedor para equipos alámbricos -->
+<div class="mt-4 bordered-section equipos-alambricos" id="seccionEquiposAlambricos" style="display: none;">
+  <h5>Interfaces Alámbricas</h5>
+  <div class="table-container">
+    <h6>Computadores</h6>
+    <table class="table table-bordered table-responsive" id="tablaComputadores">
+      <thead>
+        <tr>
+          <th>MAC</th>
+          <th>IP</th>
+          <th>Nombre del Computador</th>
+          <th>Etiqueta de Punto</th>
+          <th style="width: 70px;">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Se llenará dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+  <div class="table-container">
+    <h6>Laptops</h6>
+    <table class="table table-bordered table-responsive" id="tablaLaptopsEP">
+      <thead>
+        <tr>
+          <th>MAC</th>
+          <th>IP</th>
+          <th>Nombre del Laptop</th>
+          <th>Etiqueta de Punto</th>
+          <th style="width: 70px;">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Se llenará dinámicamente -->
+      </tbody>
+    </table>
   </div>
   
+    <!-- Tabla de Impresoras -->
+    <div class="table-container">
+      <h6>Impresoras</h6>
+      <table class="table table-bordered table-responsive" id="tablaImpresoras">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Nombre</th>
+            <th>Modelo</th>
+            <th>Etiqueta de Punto</th>
+            <th style="width: 70px;">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  <div class="table-container">
+    <h6>Teléfonos VOIP</h6>
+    <table class="table table-bordered table-responsive" id="tablaTelefonos">
+      <thead>
+        <tr>
+          <th>MAC</th>
+          <th>IP</th>
+          <th>Extensión</th>
+          <th>Modelo</th>
+          <th>Etiqueta de Punto</th>
+          <th style="width: 70px;">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Se llenará dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Contenedor para equipos inalámbricos -->
+<div class="mt-4 bordered-section equipos-inalambricos" id="seccionEquiposInalambricos" style="display: none;">
+  <h5>Interfaces Inalámbricas</h5>
+  <div class="table-container">
+    <h6>Laptops</h6>
+    <table class="table table-bordered table-responsive" id="tablaLaptops">
+      <thead>
+        <tr>
+          <th>MAC</th>
+          <th>IP</th>
+          <th>Nombre del Laptop</th>
+          <th>AP</th>
+          <th style="width: 70px;">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Se llenará dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+    <!-- Tabla de Tablets -->
+    <div class="table-container">
+      <h6>Tablets</h6>
+      <table class="table table-bordered table-responsive" id="tablaTablets">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Nombre</th>
+            <th>AP</th>
+            <th style="width: 70px;">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Se llenará dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+
+<!-- Modal para Editar Usuario -->
+<div class="modal fade" id="editarUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarUsuarioModalLabel">Editar Usuario</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarUsuario">
+          <div class="mb-3">
+            <label for="inputCedula" class="form-label">Cédula</label>
+            <input type="text" class="form-control" id="inputCedula" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombre" />
+          </div>
+          <div class="mb-3">
+            <label for="inputUsuario" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="inputUsuario" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarUsuario">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar Computador -->
+<div class="modal fade" id="editarComputadorModal" tabindex="-1" aria-labelledby="editarComputadorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarComputadorModalLabel">Editar Computador</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarComputador">
+          <div class="mb-3">
+            <label for="inputMacComputador" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacComputador" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpComputador" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpComputador" />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombreComputador" class="form-label">Nombre del Computador</label>
+            <input type="text" class="form-control" id="inputNombreComputador" />
+          </div>
+          <div class="mb-3">
+            <label for="inputPuntoRedComputador" class="form-label">Etiqueta de Punto</label>
+            <input type="text" class="form-control" id="inputPuntoRedComputador" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarComputador">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar Teléfono -->
+<div class="modal fade" id="editarTelefonoModal" tabindex="-1" aria-labelledby="editarTelefonoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarTelefonoModalLabel">Editar Teléfono</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarTelefono">
+          <div class="mb-3">
+            <label for="inputMacTelefono" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacTelefono" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpTelefono" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpTelefono" />
+          </div>
+          <div class="mb-3">
+            <label for="inputExtensionTelefono" class="form-label">Extensión</label>
+            <input type="text" class="form-control" id="inputExtensionTelefono" />
+          </div>
+          <div class="mb-3">
+            <label for="inputModeloTelefono" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="inputModeloTelefono" />
+          </div>
+          <div class="mb-3">
+            <label for="inputPuntoRedTelefono" class="form-label">Etiqueta de Punto</label>
+            <input type="text" class="form-control" id="inputPuntoRedTelefono" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarTelefono">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal para Editar Laptop Alámbrica -->
+<div class="modal fade" id="editarLaptopAlambricaModal" tabindex="-1" aria-labelledby="editarLaptopAlambricaModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarLaptopAlambricaModalLabel">Editar Laptop Alámbrica</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarLaptopAlambrica">
+          <div class="mb-3">
+            <label for="inputMacLaptopAlambrica" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacLaptopAlambrica" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpLaptopAlambrica" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpLaptopAlambrica" />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombreLaptopAlambrica" class="form-label">Nombre del Laptop</label>
+            <input type="text" class="form-control" id="inputNombreLaptopAlambrica" />
+          </div>
+          <div class="mb-3">
+            <label for="inputPuntoRedLaptopAlambrica" class="form-label">Etiqueta de Punto</label>
+            <input type="text" class="form-control" id="inputPuntoRedLaptopAlambrica" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarLaptopAlambrica">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para Editar Laptop -->
+<div class="modal fade" id="editarLaptopModal" tabindex="-1" aria-labelledby="editarLaptopModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarLaptopModalLabel">Editar Laptop</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarLaptop">
+          <div class="mb-3">
+            <label for="inputMacLaptop" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacLaptop" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpLaptop" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpLaptop" />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombreLaptop" class="form-label">Nombre del Laptop</label>
+            <input type="text" class="form-control" id="inputNombreLaptop" />
+          </div>
+          <div class="mb-3">
+            <label for="inputPuntoRedLaptop" class="form-label">AP</label>
+            <input type="text" class="form-control" id="inputPuntoRedLaptop" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarLaptop">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal para Editar Impresora -->
+<div class="modal fade" id="editarImpresoraModal" tabindex="-1" aria-labelledby="editarImpresoraModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarImpresoraModalLabel">Editar Impresora</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarImpresora">
+          <div class="mb-3">
+            <label for="inputMacImpresora" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacImpresora" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpImpresora" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpImpresora" />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombreImpresora" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombreImpresora" />
+          </div>
+          <div class="mb-3">
+            <label for="inputModeloImpresora" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="inputModeloImpresora" />
+          </div>
+          <div class="mb-3">
+            <label for="inputPuntoRedImpresora" class="form-label">Etiqueta de Punto</label>
+            <input type="text" class="form-control" id="inputPuntoRedImpresora" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarImpresora">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Editar Tablet -->
+<div class="modal fade" id="editarTabletModal" tabindex="-1" aria-labelledby="editarTabletModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarTabletModalLabel">Editar Tablet</h5>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarTablet">
+          <div class="mb-3">
+            <label for="inputMacTablet" class="form-label">MAC</label>
+            <input type="text" class="form-control" id="inputMacTablet" readonly />
+          </div>
+          <div class="mb-3">
+            <label for="inputIpTablet" class="form-label">IP</label>
+            <input type="text" class="form-control" id="inputIpTablet" />
+          </div>
+          <div class="mb-3">
+            <label for="inputNombreTablet" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputNombreTablet" />
+          </div>
+          <div class="mb-3">
+            <label for="inputApTablet" class="form-label">AP</label>
+            <input type="text" class="form-control" id="inputApTablet" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="guardarTablet">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="confirmarModal" tabindex="-1" aria-labelledby="confirmarModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmarModalLabel">Confirmación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ¿Está seguro de que desea guardar los cambios?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="confirmarGuardar">Sí, guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+/* Navbar general */
+.navbar {
+    background-color: #ffffff !important; /* Fondo blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important; /* Sombra sutil */
+    padding: 10px !important; /* Espaciado interno reducido */
+    height: 70px; /* Ajustar altura */
+    position: fixed !important; /* Fija en la parte superior */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1030 !important; /* Sobre otros elementos */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important; /* Distribuir elementos */
+  }
+  
+  /* Logo */
+  .navbar-brand {
+    display: flex; /* Asegura que el logo se comporte como un bloque flexible */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    margin: 0; /* Elimina márgenes */
+  }
+  
+  .navbar-brand img {
+    height: 40px; /* Tamaño del logo */
+    max-width: 120px; /* Limita el ancho máximo */
+    width: auto; /* Mantiene proporciones */
+  }
+  
+  /* Botón de cerrar sesión */
+  .btn-outline-light {
+    border: 1px solid #f01c1c !important;
+    color: #f00d0d !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease-in-out !important;
+    margin-left: 10px; /* Espaciado a la izquierda */
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #ffffff !important;
+    color: #e32d2d !important;
+    border: 1px solid #eb3737 !important;
+  }
+  

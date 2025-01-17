@@ -56,9 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Solo el rol "gestor" ingresa
       if (user.role === 'gestor') {
         window.location.href = '/gestion';
+      } else if (user.role === 'admin') {
+          window.location.href = '/admin';
       } else {
-        showModal('Rol no autorizado para esta acción.');
+          showModal('Rol no autorizado para esta acción.');
       }
+    
     } else {
       showModal('Usuario o contraseña incorrectos.');
     }
