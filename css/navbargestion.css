@@ -86,24 +86,7 @@
   }
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 576px) {
-  .main-content {
-    padding: 10px;
-  }
 
-  table {
-    font-size: 0.85rem; /* Reduce el tamaño del texto */
-  }
-
-  .btn {
-    font-size: 0.75rem; /* Botones más pequeños */
-  }
-
-  .navbar-brand img {
-    height: 25px !important; /* Logo aún más pequeño */
-  }
-}
 
 /* --- Colores para los encabezados de tablas --- */
 
@@ -242,4 +225,30 @@
 .bordered-section.equipos-tablets h6 {
   margin-bottom: 10px;
   text-align: center;
+}
+
+
+
+
+/* Ajustes para tablas responsivas */
+.table-responsive {
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Mejora la experiencia táctil */
+}
+
+/* Ajustes para tablas pequeñas */
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 0.8rem; /* Texto más pequeño */
+    padding: 5px; /* Reduce el espaciado interno */
+  }
+
+  .table {
+    font-size: 0.9rem; /* Reduce el tamaño general */
+  }
+
+  .btn {
+    font-size: 0.7rem; /* Botones más pequeños */
+    padding: 3px 5px; /* Ajusta el tamaño de los botones */
+  }
 }

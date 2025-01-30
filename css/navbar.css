@@ -1,26 +1,53 @@
+/* Estilo base para todos los tamaños */
+.navbar .container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias filas */
+    align-items: center; /* Alinea verticalmente */
+    justify-content: space-between; /* Distribuye espacio en pantallas grandes */
+}
+
 .navbar {
     background-color: #ffffff !important; /* Fondo blanco */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    padding: 10px 0;
-    position: fixed; /* Navbar fija */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1030; /* Sobre otros elementos */
+    color: #000000 !important; /* Texto negro */
+    overflow: hidden;
 }
 
-/* Texto de la marca */
-.navbar-brand {
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #000000; /* Texto negro para contraste */
-    letter-spacing: 1px;
-    margin: 0;
+.navbar .navbar-brand {
+    flex: 0 0 auto; /* Mantiene su tamaño y posición inicial */
+    margin-right: auto; /* Alinea el logo visible a la izquierda */
 }
 
-/* Imagen del logo */
-.navbar-brand img {
-    opacity: 1; /* Asegura que sea 100% opaco */
-    height: 40px;
+.navbar .navbar-text {
+    flex: 1; /* Ocupa el espacio disponible */
+    text-align: center; /* Centra el texto horizontalmente */
+    color: #000000; /* Texto negro */
+    margin: 0; /* Elimina márgenes extra */
+}
+
+/* Logo invisible para espaciado */
+.navbar .navbar-brand.invisible {
+    visibility: hidden; /* Oculta el logo pero mantiene el espacio */
+    flex: 0 0 auto; /* Mantiene su tamaño */
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        justify-content: center; /* Centra los elementos */
+        align-items: center; /* Alinea los elementos verticalmente */
+    }
+
+    .navbar .navbar-brand {
+        margin-right: 0; /* Quita el margen derecho */
+        margin-bottom: 10px; /* Espaciado debajo del logo */
+    }
+
+    .navbar .navbar-text {
+        margin-bottom: 10px; /* Espaciado debajo del texto */
+    }
+
+    .navbar .navbar-brand.invisible {
+        display: none; /* Oculta completamente el logo invisible en pantallas pequeñas */
+    }
 }

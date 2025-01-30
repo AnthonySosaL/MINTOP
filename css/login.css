@@ -1,15 +1,18 @@
 /* Fondo */
 body {
-    background-color: #ffffff;
+    background-image: url('../imagenes/fondologin2.png'); /* Ruta de la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+
     color: #343a40;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 /* Contenedor principal */
 .container-fluid {
-    height: calc(100vh - 56px); /* Altura del viewport menos la navbar */
+    height: calc(80vh - 56px); /* Altura del viewport menos la navbar */
     margin-top: 56px; /* Ajustar la altura de la navbar */
     display: flex;
     justify-content: center;
